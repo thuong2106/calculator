@@ -11,35 +11,26 @@ const methods: methodType = {
 
 
 // tính toán kết quả của một biểu thức số học dựa trên các toán hạng và toán tử đã cho.
-function evaluate({TongTruocDo,TongHienTai,PhuongThuc,}: initialReducerType): string {
+function evaluate({ TongTruocDo, TongHienTai, PhuongThuc }: initialReducerType): string {
   const pre = parseFloat(TongTruocDo);
   const curr = parseFloat(TongHienTai);
-  let total = "";
+
   if (isNaN(pre) || isNaN(curr)) return "";
 
   switch (PhuongThuc) {
     case "+":
-      total = String(pre + curr);
-      return total;
-      break;
+      return String(pre + curr);
     case "-":
-      total = String(pre - curr);
-      return total;
-      break;
+      return String(pre - curr);
     case "*":
-      total = String(pre * curr);
-      return total;
-      break;
+      return String(pre * curr);
     case "%":
-      total = String(pre / curr);
-      return total;
-      break;
-
+      return String(pre / curr);
     default:
       return "";
-      break;
   }
 }
+
 const reducer = (
   state: initialReducerType,
   { method, payload }: actionType
