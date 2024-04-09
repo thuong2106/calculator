@@ -8,8 +8,6 @@ const methods: methodType = {
   TINH_TOAN: "tinhToan",
 };
 
-
-
 // tính toán kết quả của một biểu thức số học dựa trên các toán hạng và toán tử đã cho.
 function evaluate({ TongTruocDo, TongHienTai, PhuongThuc }: initialReducerType): string {
   const pre = parseFloat(TongTruocDo);
@@ -31,10 +29,7 @@ function evaluate({ TongTruocDo, TongHienTai, PhuongThuc }: initialReducerType):
   }
 }
 
-const reducer = (
-  state: initialReducerType,
-  { method, payload }: actionType
-): initialReducerType => {
+const reducer = (state: initialReducerType, { method, payload }: actionType): initialReducerType => {
   switch (method) {
     case methods.CHON_SO:
       if (state.TongHienTai === "" && payload === ".") {
@@ -45,8 +40,7 @@ const reducer = (
       }
       return {
         ...state,
-        TongHienTai: `${state.TongHienTai || ""}${payload}`,
-      };
+        TongHienTai: `${state.TongHienTai || ""}${payload}`,};
       break;
 
     case methods.CHON_PHUONG_THUC:
@@ -78,9 +72,7 @@ const reducer = (
       return initialReducer;
     case methods.TINH_TOAN:
       if (
-        (state.TongHienTai === "" || state.TongTruocDo === "",
-        state.PhuongThuc === "")
-      ) {
+        (state.TongHienTai === "" || state.TongTruocDo === "", state.PhuongThuc === "")) {
         return state;
       }
       return {
@@ -101,6 +93,8 @@ const initialReducer = {
   TongHienTai: "",
   PhuongThuc: "",
 };
+
+// dispatch: hàm gửi các hành động đến reducer để cập nhật trạng thái.
 function App() {
   const [{ TongTruocDo, TongHienTai, PhuongThuc }, dispatch] = useReducer(
     reducer,

@@ -4,6 +4,6 @@
 
 @layer components{
   .digit{
-    @apply min-h-[50px] text-center leading-[50px] text-[20px] font-medium rounded-lg shadow-inner hover:border-[red] cursor-pointer border
+    @apply min-h-[50px] text-center leading-[50px] text-[20px] font-medium rounded-lg shadow-inner hover:border-[#008cff] cursor-pointer border
   }
 }
